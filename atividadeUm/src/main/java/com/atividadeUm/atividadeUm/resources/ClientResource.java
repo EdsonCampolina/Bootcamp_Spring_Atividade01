@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.atividadeUm.atividadeUm.entities.Client;
+import com.atividadeUm.atividadeUm.dto.ClientDTO;
 import com.atividadeUm.atividadeUm.services.ClientService;
 
 @RestController
@@ -18,10 +18,19 @@ public class ClientResource {
 	@Autowired
 	ClientService service;
 
+	// Busca paginada
 	@GetMapping
-	public ResponseEntity<List<Client>> findAll() {
-		List<Client> list = service.findAll();
+	public ResponseEntity<List<ClientDTO>> findAll() {
+		List<ClientDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
+	
+	// Busca por id
+	
+	// Inserir novo cliente
+	
+	// Atualizar cliente
+	
+	// Deletar cliente
 
 }
