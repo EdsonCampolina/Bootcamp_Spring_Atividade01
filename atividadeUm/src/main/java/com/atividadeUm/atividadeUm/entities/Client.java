@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
+import com.atividadeUm.atividadeUm.dto.ClientDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,12 +26,20 @@ public class Client implements Serializable {
 	private String cpf;
 	private Double income;
 	private Integer children;
-	
+
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant birthDate;
 
 	public Client() {
 
+	}
+
+	public Client(ClientDTO dto) {
+		this.name = dto.getName();
+		this.cpf = dto.getCpf();
+		this.income = dto.getIncome();
+		this.children = dto.getChildren();
+		this.birthDate = dto.getBirthDate();
 	}
 
 	public Long getId() {
